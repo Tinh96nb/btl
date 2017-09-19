@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('news/pages/home');
+});
+Route::get('users/get/{id}', 'UserController@get');
+Route::post('users','UserController@post')->name('post');
+Route::get('users/list','UserController@listuser');
+Route::get('post/{slug}', function() {
+    return view('news/pages/singlepost');
 });
