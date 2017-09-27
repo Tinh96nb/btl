@@ -11,11 +11,13 @@ class UserController extends Controller
     {
     	return view('user/list',compact('id'));
     }
+
     public function post(Request $request)
     {
     	return $request;
-
     }
+
+    
     public function listuser()	
     {
     	$list = User::all();

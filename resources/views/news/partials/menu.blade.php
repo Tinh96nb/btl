@@ -3,13 +3,13 @@
 	<nav id="main-menu" class="left navigation">
 		<ul class="sf-menu no-bullet inline-list m0">
 			<li><a href="index.html" class="active">Home</a></li>
-    		<li><a href="#">Category</a>
-    			<ul class="sub-menu">
-					<li><a href="blog-right-sidebar.html">Right Sidebar</a></li>
-					<li><a href="blog-left-sidebar.html">Left Sidebar</a></li>
-					<li><a href="blog-without-sidebar.html">Without Sidebar</a></li>
-				</ul>
-    		</li>
+			@foreach ($categories as $cate)
+
+				<li>
+					<a href="#">{{ $cate->name }}</a>
+	    		</li>
+
+			@endforeach
     		<li><a href="#">Single Post</a>
     			<ul class="sub-menu">
 					<li><a href="singlepost-right-sidebar.html">Right Sidebar</a></li>

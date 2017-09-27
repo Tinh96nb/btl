@@ -4,7 +4,7 @@
     		<ul class="tab-links no-bullet clearfix">
     			<li class="active"><a href="#popular-tab">Popular</a></li>
     			<li><a href="#recent-tab">Recent</a></li>
-    			<li><a href="#comments-tab">Comments</a></li>
+    			<li><a href="#comments-tab">Comments {{ $count }}</a></li>
     		</ul>
 
     		<div id="popular-tab">

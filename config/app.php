@@ -176,6 +176,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        /*
+         * ViewComposer
+         * Hỗ trợ require data dùng chung cho view
+         *   PDT
+         */
+        App\Http\ViewComposers\ComposerServiceProvider::class,
 
     ],
 
