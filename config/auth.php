@@ -67,7 +67,8 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            /* rewrite model use */
+            'model' => App\Admin::class,
         ],
 
         // 'users' => [

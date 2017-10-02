@@ -2,13 +2,8 @@
 	<!-- Top Menu -->
 	<nav id="top-menu" class="clearfix">
 		<ul class="no-bullet inline-list m0">
-			<li><a href="#">Shortcodes</a></li>
+			<li><a href="/login">Login</a></li>
 			<li><a href="#">Portfolio</a></li>
-			<li><a href="#">Pages</a></li>
-			<li><a href="#">Links</a></li>
-			<li><a href="#">About us</a></li>
-			<li><a href="#">Admin options</a></li>
-			<li><a href="#">Documentation</a></li>
 		</ul>
 	</nav>
 	<!-- End Top Menu -->

@@ -9,16 +9,16 @@ use Illuminate\Support\MessageBag;
 
 class LoginController extends Controller
 {
-    public function get()
+    public function getLogin()
     {
     	if (Auth::check())
 		{
-		   return redirect()->route('admin');
+		   return redirect()->route('dashbroad');
 		}
     	return view('admin.login');
     }
 
-    public function post(Request $request)
+    public function postLogin(Request $request)
     {
     	$rules = [
     		'username' => 'required | min : 4 | max : 25 ',
@@ -44,7 +44,7 @@ class LoginController extends Controller
         	
         	if( Auth::attempt(['name' => $username, 'password' => $password], $request->input('remember') ) ){
 
-        		return redirect()->route('admin');
+        		return redirect()->route('dashbroad');
 
         	} else {
 
@@ -52,5 +52,11 @@ class LoginController extends Controller
         		return redirect()->back()->withErrors($msg);
         	}
         }
+    }
+    
+    public function getLogout()
+    {
+        if( Auth::check() ) Auth::logout();
+        return redirect()->route('login');
     }
 }
