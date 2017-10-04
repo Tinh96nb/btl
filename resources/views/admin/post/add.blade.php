@@ -65,15 +65,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Nổi Bật</label>
-                    <label class="radio-inline">
-                        <input name="hot" value="0" checked="" type="radio">Không
-                    </label>
-                    <label class="radio-inline">
-                        <input name="hot" value="1" type="radio">Có
-                    </label>
-                </div>
-                <div class="form-group">
                     <label>Trạng Thái</label>
                     <label class="radio-inline">
                         <input name="status" value="1" checked="" type="radio">Công Khai

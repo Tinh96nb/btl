@@ -1,18 +1,14 @@
 @extends('news.layout.single')
-@section('title')
-| Tìm kiếm bài viết
-@endsection
 @section('content')
 <!-- Posts -->
-<h4 class="cat-title mb25">Từ Khóa {{ $key }}</h4>
+@if(isset($tag))
+@section('title')
+| Tag {{ $tag->name}}
+@endsection
+<h4 class="cat-title mb25">Bài viết theo thẻ {{ $tag->name}}</h4>
 <section class="row">
-	@if(count($posts)==0)
-	<article class="post ten column">
-		<h3>Không có bài viết nào được tìm thấy.</h3>
-	</article>
-	@endif
 	<!-- Category posts -->
-	@foreach($posts as $post)
+	@foreach($tag->posts as $post)
 	<article class="post six column">
 		<div class="post-image">
 			@if(count($post->files)>0) 
@@ -31,12 +27,21 @@
 		</div>
 
 		<div class="post-meta">
-			<span class="view"><a href="">{{$post->view}} views</a></span>
 			<span class="author"><a href="author/{{$post->admin->name}}">{{$post->admin->name}}</a></span>
 			<span class="date"><a href="#">{{date('G:i d-m-Y', strtotime($post->created_at)) }}</a></span>
 		</div>
 	</article>
 	@endforeach
+@else
+	<section class="row">
+	<h4 class="cat-title mb25">Bài viết theo thẻ {{ $key}}</h4>
+	<article class="post ten column">
+		<h3>Không có bài viết nào được tìm thấy.</h3>
+	</article>
+@section('title')
+| Không tìm thấy
+@endsection
+@endif
 	<!-- End Category posts -->
 </section>
 @endsection

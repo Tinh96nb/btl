@@ -18,8 +18,11 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer(
             'news.partials.sidebar', 'App\Http\ViewComposers\SidebarComposer'
         );
-         View::composer(
+        View::composer(
             'news.partials.menu', 'App\Http\ViewComposers\MenuComposer'
+        );
+        View::composer(
+            'news.partials.slide', 'App\Http\ViewComposers\SlideComposer'
         );
 
     }

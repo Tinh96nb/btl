@@ -1,18 +1,14 @@
 @extends('news.layout.single')
 @section('title')
-| Tìm kiếm bài viết
+| Author
 @endsection
 @section('content')
 <!-- Posts -->
-<h4 class="cat-title mb25">Từ Khóa {{ $key }}</h4>
+@if(isset($author))
+<h4 class="cat-title mb25">Bài viết của {{ $author->name}}</h4>
 <section class="row">
-	@if(count($posts)==0)
-	<article class="post ten column">
-		<h3>Không có bài viết nào được tìm thấy.</h3>
-	</article>
-	@endif
 	<!-- Category posts -->
-	@foreach($posts as $post)
+	@foreach($author->posts as $post)
 	<article class="post six column">
 		<div class="post-image">
 			@if(count($post->files)>0) 
@@ -39,4 +35,12 @@
 	@endforeach
 	<!-- End Category posts -->
 </section>
+@else
+<section class="row">
+	<h4 class="cat-title mb25">Người Soạn {{ $key}}</h4>
+	<article class="post ten column">
+		<h3>Không có bài viết nào được tìm thấy.</h3>
+	</article>
+</section>
+@endif
 @endsection

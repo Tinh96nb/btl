@@ -140,7 +140,10 @@ body > header .inner-header {
     background: #fff;
     margin-bottom: 50px;
 }
-
+.fix-container {
+    padding-right: 0;
+    padding-left: 0;
+}
 .container header {
     background: #2e2e2e;
 }
@@ -414,9 +417,9 @@ body > header .inner-header {
     color: #999;
 }
 
-.post-meta .comments {
-    background: url(../images/comments-icon.png) no-repeat left center;
-    padding: 5px 0 5px 30px;
+.post-meta .view {
+    background: url(../images/bullet-style.png) no-repeat left center;
+    padding: 5px 0 5px 20px;
     margin-right: 10px;
 }
 
@@ -697,6 +700,13 @@ footer .widget-title {
 
 .tabs-widget .post-date {
     background: url(../images/date-icon.png) no-repeat 75px center;
+    padding-left: 96px;
+    font-size: 11px;
+    height: 22px;
+    line-height: 24px;
+}
+.tabs-widget .post-view {
+    background: url(../images/bullet-style.png) no-repeat 75px center;
     padding-left: 96px;
     font-size: 11px;
     height: 22px;
@@ -1319,7 +1329,9 @@ li.widget_social_media li.pinterest {
 .social-media ul {
     margin: 0 !important;
 }
-
+ul li {
+        list-style: none !important;
+}
 .social-media li {
     list-style: none !important;
     float: left;

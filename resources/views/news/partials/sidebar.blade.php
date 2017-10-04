@@ -2,83 +2,62 @@
 	<ul class="no-bullet">
 		<li class="widget tabs-widget clearfix">
     		<ul class="tab-links no-bullet clearfix">
-    			<li class="active"><a href="#popular-tab">Popular</a></li>
-    			<li><a href="#recent-tab">Recent</a></li>
-    			<li><a href="#comments-tab">Comments {{ $count }}</a></li>
+    			<li class="active"><a href="#popular-tab">Nổi Bật</a></li>
+    			<li><a href="#recent-tab">Gần Đây</a></li>
+    			<li><a href="#view-tab">Top View</a></li>
     		</ul>
 
     		<div id="popular-tab">
     			<ul>
+    				<?php $post_hot = $posts->where('hot',1)->take(4); ?>
+    				@foreach($post_hot as $post)
     				<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-    					<h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-    					<div class="post-date">March 25, 2012</div>
+    					@if(count($post->files)>0) 
+							<?php $image = $post->files[0]->link; ?>
+						@else 
+							<?php $image = 'http://placehold.it/60x60'; ?>
+						@endif
+    					<a href="post/{{ $post->slug }}.html"><img alt="" src="{{$image}}"></a>
+    					<h3><a href="post/{{ $post->slug }}.html">{{ $post->title }}</a></h3>
+    					<div class="post-date">{{date('G:i d-m-Y', strtotime($post->created_at)) }}</div>
     				</li>
-    				<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-    					<h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-    					<div class="post-date">March 22, 2012</div>
-    				</li>
-    				<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-    					<h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-    					<div class="post-date">March 05, 2012</div>
-    				</li>
-    				<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-    					<h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-    					<div class="post-date">March 05, 2012</div>
-    				</li>
+    				@endforeach
     			</ul>
     		</div>
 
     		<div id="recent-tab">
     			<ul>
+    				<?php $post_recent = $posts->take(4); ?>
+    				@foreach($post_recent as $post)
     				<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-    					<h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-    					<div class="post-date">March 25, 2012</div>
+    					@if(count($post->files)>0) 
+							<?php $image = $post->files[0]->link; ?>
+						@else 
+							<?php $image = 'http://placehold.it/60x60'; ?>
+						@endif
+    					<a href="post/{{ $post->slug }}.html"><img alt="" src="{{$image}}"></a>
+    					<h3><a href="post/{{ $post->slug }}.html">{{ $post->title }}</a></h3>
+    					<div class="post-date">{{date('G:i d-m-Y', strtotime($post->created_at)) }}</div>
     				</li>
-    				<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-    					<h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-    					<div class="post-date">March 22, 2012</div>
-    				</li>
-    				<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-    					<h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-    					<div class="post-date">March 05, 2012</div>
-    				</li>
-    				<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-    					<h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-    					<div class="post-date">March 05, 2012</div>
-    				</li>
+    				@endforeach
     			</ul>
     		</div>
 
-   			<div id="comments-tab">
+   			<div id="view-tab">
    				<ul>
-   					<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-    					<h3><a href="#">admin says:</a></h3>
-    					<div class="author-comment">Nice theme, indeed :)</div>
-    				</li>
+   					<?php $post_recent = $posts->sortByDesc('view')->take(4); ?>
+    				@foreach($post_recent as $post)
     				<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-						<h3><a href="#">faton says:</a></h3>
-   						<div class="author-comment">very nice post!</div>
-   					</li>
-   					<li>
-   						<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-   						<h3><a href="#">sami says:</a></h3>
-   						<div class="author-comment">Nice theme I’m gonna use it on my next site. I loved the layout and ...</div>
-   					</li>
-   					<li>
-    					<a href="#"><img alt="" src="http://placehold.it/60x60"></a>
-    					<h3><a href="#">sami says:</a></h3>
-    					<div class="author-comment">Nice theme I’m gonna use it on my next site. I loved the layout and ...</div>
+    					@if(count($post->files)>0) 
+							<?php $image = $post->files[0]->link; ?>
+						@else 
+							<?php $image = 'http://placehold.it/60x60'; ?>
+						@endif
+    					<a href="post/{{ $post->slug }}.html"><img alt="" src="{{$image}}"></a>
+    					<h3><a href="post/{{ $post->slug }}.html">{{ $post->title }}</a></h3>
+    					<div class="post-view">{{$post->view}} views</div>
     				</li>
+    				@endforeach
     			</ul>
     		</div>
 		</li>
@@ -90,9 +69,9 @@
 			</form>
 		</li>
 		<li class="widget widget_ads_big clearfix">
-			<h3 class="widget-title">Ads Big</h3>
+			<h3 class="widget-title">Quảng Cáo</h3>
 			<div class="clearfix">
-				<a href="http://themeforest.net/user/nextWPthemes/portfolio?ref=nextWPThemes"><img alt="" src="http://placehold.it/300x250"></a>
+				<a href=""><img alt="" src="images/logo/qc.jpg"></a>
 			</div>
 		</li>
 		<li class="widget widget_facebook_box clearfix">
@@ -153,17 +132,9 @@
 		<li class="widget widget_tag_cloud clearfix">
 			<h3 class="widget-title">Tags</h3>
 			<div class="tagcloud">
-				<a href="#" title="3 topics" style="font-size: 22pt;">business</a>
-				<a href="#" title="1 topic" style="font-size: 8pt;">Computers</a>
-				<a href="#" title="2 topics" style="font-size: 16.4pt;">css</a>
-				<a href="#" title="2 topics" style="font-size: 16.4pt;">design</a>
-				<a href="#" title="2 topics" style="font-size: 16.4pt;">graphics</a>
-				<a href="#" title="1 topic" style="font-size: 8pt;">html</a>
-				<a href="#" title="2 topics" style="font-size: 16.4pt;">jQuery</a>
-				<a href="#" title="2 topics" style="font-size: 16.4pt;">themes</a>
-				<a href="#" title="2 topics" style="font-size: 16.4pt;">Video</a>
-				<a href="#" title="1 topic" style="font-size: 8pt;">video</a>
-				<a href="#" title="1 topic" style="font-size: 8pt;">website</a>
+				@foreach($tags as $tag)
+					<a href="tag/{{ $tag->slug }}" title="3 topics" style="font-size: 22pt;">{{ $tag->name }}</a>
+				@endforeach
 			</div>
 		</li>
 	</ul>

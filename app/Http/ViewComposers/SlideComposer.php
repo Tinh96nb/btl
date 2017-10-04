@@ -3,10 +3,9 @@
 namespace App\Http\ViewComposers;
 
 use Illuminate\View\View;
-use App\Tag;
 use App\Post;
 
-class SidebarComposer
+class SlideComposer
 {
     /**
      * The user repository implementation.
@@ -34,8 +33,7 @@ class SidebarComposer
      */
     public function compose(View $view)
     {
-        $tags = Tag::limit(10)->get();
-        $posts = Post::where('status',1)->orderBy('created_at','des')->get();
-        $view->with('posts',$posts)->with('tags',$tags);
+        $posts = Post::where('status',1)->where('hot',1)->orderBy('created_at','des')->limit(4)->get();
+        $view->with('posts',$posts);
     }
 }

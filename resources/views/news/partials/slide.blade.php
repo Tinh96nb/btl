@@ -1,40 +1,17 @@
 <div class="flexslider mb25">
 	<ul class="slides no-bullet inline-list m0">
+        @foreach($posts as $post)
 		<li>
-     		<a href="#"><img alt="" src="http://placehold.it/620x350"></a>
+     		<a href="post/{{ $post->slug }}.html">
+                <img alt="{{ $post->files[0]->name }}" src="{{ $post->files[0]->link }}"> 
+            </a>                    
      		<div class="flex-caption">
                 <div class="desc">
-                	<h1><a href="#">Maecenas mattis, tortor ut posuere aliquam.</a></h1>
-                	<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor</p>
+                	<h1><a href="post/{{ $post->slug }}.html">{{ $post->title }}</a></h1>
+                	<p>{{ $post->description }}</p>
                 </div>
             </div>
 		</li>
-		<li>
-			<a href="#"><img alt="" src="http://placehold.it/620x350"></a>
-     		<div class="flex-caption">
-                <div class="desc">
-                	<h1><a href="#">Maecenas mattis</a></h1>
-                	<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor</p>
-                </div>
-            </div>
-   		</li>
-   		<li>
-     		<a href="#"><img alt="" src="http://placehold.it/620x350"></a>
-     		<div class="flex-caption">
-                <div class="desc">
-                	<h1><a href="#">Maecenas mattis, tortor ut posuere aliquam, tortor ut posuere aliquam, tortor ut posuere aliquam</a></h1>
-                	<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor</p>
-                </div>
-            </div>
-		</li>
-		<li>
-			<a href="#"><img alt="" src="http://placehold.it/620x350"></a>
-     		<div class="flex-caption">
-                <div class="desc">
-                	<h1><a href="#">Maecenas mattis, tortor ut posuere aliquam, tortor ut posuere aliquam, tortor ut posuere aliquam</a></h1>
-                	<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor</p>
-                </div>
-            </div>
-   		</li>
+		@endforeach
 	</ul>
 </div>

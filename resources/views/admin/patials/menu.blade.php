@@ -16,6 +16,9 @@
                 <a href="admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
+                <a href="admin/profile"><i class="fa fa-user fa-fw"></i> Cá Nhân</a>
+            </li>
+            <li>
                 <a href="admin/post"><i class="fa fa-pencil fa-fw"></i> Bài viết<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
@@ -27,7 +30,7 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-
+            @if(Auth::user()->role=='admin')
             <li>
                 <a href="admin/category"><i class="fa fa-table fa-fw"></i> Chuyên Mục<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -46,30 +49,14 @@
             </li>
 
             <li>
-                <a href="admin/slide/danhsach"><i class="fa fa-tags fa-fw"></i> Tags<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="admin/slide/danhsach">Danh Sách Slide</a>
-                    </li>
-                    <li>
-                        <a href="admin/slide/them">Thêm Slide</a>
-                    </li>
-                </ul>
+                <a href="admin/tag"><i class="fa fa-tags fa-fw"></i> Tags</a>
                 <!-- /.nav-second-level -->
             </li>
 
             <li>
-                <a href="admin/user/danhsach"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="admin/user/danhsach">Danh Sách User</a>
-                    </li>
-                    <li>
-                        <a href="admin/user/them">Thêm User</a>
-                    </li>
-                </ul>
-                <!-- /.nav-second-level -->
+                <a href="admin/author"><i class="fa fa-users fa-fw"></i> Quản lý Author</a>
             </li>
+            @endif
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

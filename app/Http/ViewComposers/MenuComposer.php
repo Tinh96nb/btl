@@ -33,7 +33,7 @@ class MenuComposer
      */
     public function compose(View $view)
     {
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('categories')->limit(5)->get();
         $view->with('categories',$categories);
     }
 }
