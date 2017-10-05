@@ -22,7 +22,7 @@
                         <th>Tên</th>
                         <th>Email</th>
                         <th>Ngày Sinh</th>
-                        <th>Avatar</th>
+                        <th>Số Bài Viết</th>
                         <th>Tạo Lúc</th>
                         <th>Hành Động</th>
                     </tr>
@@ -106,7 +106,7 @@
                 { data: 'name', name: 'name' },
                 { data: 'email', name: 'email' },
                 { data: 'birthday', name: 'birthday' },
-                { data: 'avatar', name: 'avatar' },
+                { data: 'post_count', name: 'post_count' },
                 { data: 'created_at', name: 'created_at' },
                 { data: 'action', name: 'action' },
             ]

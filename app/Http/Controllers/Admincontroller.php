@@ -43,8 +43,11 @@ class Admincontroller extends Controller
 
     public function dataTable()
     { 
-    	$model = Admin::query();
+    	$model = Admin::where('role','!=','admin');
     	return DataTables::eloquent($model)
+                ->addColumn('post_count', function(Admin $author) {
+                    return $author->posts->count().' bài viết';
+                })
                 ->addColumn('action', '
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#show-delete">
                     	<i class="fa fa-trash" aria-hidden="true"></i> Xoá
