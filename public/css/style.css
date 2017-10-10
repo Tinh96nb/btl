@@ -451,8 +451,8 @@ h4.post-title {
 
 .other-posts li {
     display: block;
-    height: 50px;
-    margin-bottom: 25px;
+    height: 48px;
+    margin-bottom: 22px;
 }
 
 .other-posts li > a {
@@ -562,7 +562,7 @@ footer {
     position: relative;
     background: url(../images/footer-bg.png);
     margin: 0 -15px !important;
-    padding: 30px 10px 0 10px;
+    padding: 20px 10px 0 10px;
     border-top: 10px solid #e6e6e6;
     color: #fff;
 }
@@ -579,7 +579,7 @@ footer .widget-title {
     color: #fff;
     font-weight: normal;
     text-transform: uppercase;
-    margin: 0 0 20px 0;
+    margin: 0 0 16px 0;
 }
 
 .copyright {
@@ -1059,7 +1059,7 @@ li.widget_search input[type="submit"] {
 
 .twitter-widget li {
     display: block;
-    margin-top: 20px;
+    margin-top: 6px;
     padding-left: 30px;
     background: url(../images/twitter-icon.png) no-repeat left 7px;
 }
@@ -1102,12 +1102,12 @@ li.widget_search input[type="submit"] {
 
 footer .textwidget p {
     color: #fff;
-    line-height: 22px;
+    line-height: 17px;
+    margin-bottom: 12px;
 }
 
 .textwidget img {
-    float: left;
-    margin: 5px 15px 10px 0;
+    margin: 0px 15px 5px 0;
 }
 
 /*-------------------------------------------------*/

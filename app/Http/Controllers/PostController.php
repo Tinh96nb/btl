@@ -73,10 +73,8 @@ class PostController extends Controller
 	    		$file_extension = $file->getClientOriginalExtension(); // Lấy đuôi của file
 	    		if($file_extension == 'png' || $file_extension == 'jpg' || $file_extension == 'jpeg'){
 	    			$post->post_type = 'text';
-	    			$post->save();
 	    		} else if($file_extension == 'mp4' || $file_extension == '3gp' || $file_extension == 'avi' || $file_extension == 'flv'){
 	    			$post->post_type = 'video';
-	    			$post->save();
 	    		} else return redirect()->back()->with('errfile','Chưa hỗ trợ định dạng file vừa upload.')->withInput();
 
 	    		$file_name = $file->getClientOriginalName();
@@ -85,13 +83,13 @@ class PostController extends Controller
 	    			$random_file_name = str_random(4).'_'.$file_name;
 	    		}
 	    		$file->move('upload/posts',$random_file_name);
-	    		$file_upload = new File();
-	    		$file_upload->name = $random_file_name;
-	    		$file_upload->link = 'upload/posts/'.$random_file_name;
-	    		$file_upload->post_id = $post->id;
-	    		$file_upload->save();
-	    		//$tintuc->Hinh = $random_file_name;
-	    	}
+	    		// $file_upload = new File();
+	    		// $file_upload->name = $random_file_name;
+	    		// $file_upload->link = 'upload/posts/'.$random_file_name;
+	    		// $file_upload->post_id = $post->id;
+	    		// $file_upload->save();
+	    		$post->feture = 'upload/posts/'.$random_file_name;
+	    	} else $post->feture='';
 	    	$post->save();
 	    	// Inset to table tag.
 	    	$post->tags()->sync( $request->input('tags') ,false);
@@ -186,14 +184,13 @@ class PostController extends Controller
         	    	$post->category_id = $request->input('category_id');
                     //Upload Image
                     if($request->hasFile('img_post')){
+                        ini_set('memory_limit','256M');
                         $file = $request->file('img_post');
                         $file_extension = $file->getClientOriginalExtension(); // Lấy đuôi của file
                         if($file_extension == 'png' || $file_extension == 'jpg' || $file_extension == 'jpeg'){
                             $post->post_type = 'text';
-                            $post->save();
                         } else if($file_extension == 'mp4' || $file_extension == '3gp' || $file_extension == 'avi' || $file_extension == 'flv'){
                             $post->post_type = 'video';
-                            $post->save();
                         } else return redirect()->back()->with('errfile','Chưa hỗ trợ định dạng file vừa upload.')->withInput();
 
                         $file_name = $file->getClientOriginalName();
@@ -202,12 +199,11 @@ class PostController extends Controller
                             $random_file_name = str_random(4).'_'.$file_name;
                         }
                         $file->move('upload/posts',$random_file_name);
-                        $file_upload = new File();
-                        $file_upload->name = $random_file_name;
-                        $file_upload->link = 'upload/posts/'.$random_file_name;
-                        $file_upload->post_id = $post->id;
-                        $file_upload->save();
-                        //$tintuc->Hinh = $random_file_name;
+                        // $file_upload = new File();
+                        // $file_upload->name = $random_file_name;
+                        // $file_upload->post_id = $post->id;
+                        // $file_upload->save();
+                        $post->feture = 'upload/posts/'.$random_file_name;
                     }
 
                     $post->save();

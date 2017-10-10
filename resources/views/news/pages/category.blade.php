@@ -14,17 +14,17 @@
 	@foreach($posts as $post)
 	<article class="post six column">
 		@if($post->post_type=='video')
-			<div class="post-image">
-				<a href="post/{{$post->slug}}.html"><video src="{{ $post->files[0]->link}}" alt="" style="width: 100%"></video></a>
+			<div class="post-image zoom-out">
+				<a href="post/{{$post->slug}}.html"><video src="{{ $post->feture}}" alt="" style="width: 100%"></video></a>
 			</div>
 		@else
-			<div class="post-image">
-				@if(count($post->files)>0) 
-					<?php $image = $post->files[0]->link; ?>
+			<div class="post-image zoom-out">
+				@if($post->feture) 
+					<?php $image = $post->feture; ?>
 				@else 
 					<?php $image = 'http://placehold.it/300x220'; ?>
 				@endif
-				<a href="post/{{$post->slug}}.html"><img src="{{$image}}" alt="" style="width: 300px;height: 220px;"></a>
+				<figure><a href="post/{{$post->slug}}.html"><img src="{{$image}}" alt="" style="width: 300px;height: 220px;"></a></figure>
 			</div>
 		@endif
 		@if($post->post_type=='text')

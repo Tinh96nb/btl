@@ -10,17 +10,17 @@
 	<!-- Category posts -->
 	@foreach($author->posts as $post)
 	<article class="post six column">
-		<div class="post-image">
-			@if(count($post->files)>0) 
-				<?php $image = $post->files[0]->link; ?>
+		<div class="post-image zoom-out">
+			@if($post->feture) 
+				<?php $image = $post->feture;?>
 			@else 
 				<?php $image = 'http://placehold.it/300x220'; ?>
 			@endif
-			<a href="post/{{$post->slug}}.html"><img src="{{$image}}" alt="" style="width: 300px;height: 220px;"></a>
+			<figure><a href="post/{{$post->slug}}.html"><img src="{{$image}}" alt="" style="width: 300px;height: 220px;"></a></figure>
 		</div>
 
 		<div class="post-container">
-			<h2 class="post-title">{{$post->title}}</h2>
+			<a href="post/{{$post->slug}}.html"><h2 class="post-title">{{$post->title}}</h2></a>
 			<div class="post-content">
 				<p>{{$post->description}}</p>
 			</div>

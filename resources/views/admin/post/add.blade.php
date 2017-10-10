@@ -85,7 +85,7 @@
                 filebrowserBrowseUrl: 'laravel-filemanager?type=Files',
                 filebrowserUploadUrl: 'laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
               };
-              CKEDITOR.replace('demo', options);
+        CKEDITOR.replace('demo', options);
         $('.js-example-basic-multiple').select2();
          $('#title').keyup(function(event) {
                 var title = $('#title').val();

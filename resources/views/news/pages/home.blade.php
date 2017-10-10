@@ -12,13 +12,14 @@
 			?>
 			{{-- Neu co 1 bai viet --}}
 			@if($post_1)
-				<div class="post-image">
-					@if(count($post_1->files)>0) 
-						<?php $image = $post_1->files[0]->link; ?>
+				<div class="post-image zoom-out">
+					@if($post_1->feture) 
+						<?php $image = $post_1->feture;?>
 					@else 
 						<?php $image = 'http://placehold.it/300x220'; ?>
 					@endif
-					<a href="post/{{$post_1->slug}}.html"><img src="{{ $image }}" alt="" style="width:300px;height:220px"></a>
+					<figure><a href="post/{{$post_1->slug}}.html"><img src="{{ $image }}" alt="" style="width:300px;height:220px"></a>
+					</figure>
 				</div>
 				<div class="post-container">
 					<a href="post/{{$post_1->slug}}.html"><h2 class="post-title">{{ $post_1->title }}</h2></a>
@@ -33,11 +34,11 @@
 				</div>
 			@endif
 				@foreach( $posts->all() as $post)
-				<div class="other-posts">
-					<ul class="no-bullet">
-						<li>
-							@if(count($post->files)>0) 
-								<?php $image = $post->files[0]->link; ?>
+				<div class="other-posts speia">
+					<ul class="no-bullet ">
+						<li class="opac">
+							@if($post->feture)
+								<?php $image = $post->feture; ?>
 							@else
 								<?php $image = 'http://placehold.it/50x50'; ?>
 							@endif
@@ -54,8 +55,7 @@
 <!-- End Carousel Posts -->
 <!-- Gallery Posts -->
 <div class="clearfix mb25 oh">
-	<h4 class="cat-title">Video Nổi Bật</h4>
-
+	<a href="category/video"><h4 class="cat-title">Video Nổi Bật</h4></a>
 	<!-- jCarousel -->
 	<div class="carousel-container">
 		<div class="carousel-navigation">
@@ -63,12 +63,11 @@
 			<a class="carousel-next"></a>
 		</div>
 		<div class="carousel-item-holder gallery row" data-index="0">
-			
 			@foreach( $videos as $video)
 			<div class="four column carousel-item">
 				<div class="video">
-				  <a href="{{$video->files[0]->link}}" title="{{$video->title}}">
-				  	<video src="{{$video->files[0]->link}}" style="width: 100%"></video>
+				  <a href="{{$video->feture}}" title="{{$video->title}}">
+				  	<video src="{{$video->feture}}" style="width: 100%"></video>
 				  </a>       
 				</div>
 			</div>

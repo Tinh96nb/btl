@@ -14,7 +14,7 @@ class PagesController extends Controller
     public function getindex()
     {
         $cates = Category::where('name','!=','video')->get();
-        $videos = Post::where('post_type','=','video')->take(5)->get();
+        $videos = Post::where('post_type','=','video')->take(5)->orderBy('created_at','des')->get();
         return view('news.pages.home',['cates'=>$cates,'videos'=>$videos]);
     }
     public function getCategory($slug)
@@ -65,6 +65,6 @@ class PagesController extends Controller
     }
     public function getContact()
     {
-    	
+    	return view('news.pages.contact');
     }
 }

@@ -60,9 +60,7 @@
                             <td class="text-center">{{ $post->view }}</td>
                             <td>{{ $post->created_at }}</td>
                             <td>
-                                @foreach($post->files as $file)
-                                        <img src="{{$file->link}}" width="50px">
-                                @endforeach
+                                        <img src="{{$post->feture}}" width="50px">
                             </td>
                             <td>
                                 @if(Auth::user()->id == $post->user_id)

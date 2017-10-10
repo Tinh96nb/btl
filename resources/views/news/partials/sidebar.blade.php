@@ -7,13 +7,13 @@
     			<li><a href="#view-tab">Top View</a></li>
     		</ul>
 
-    		<div id="popular-tab">
+    		<div id="popular-tab" class="shine">
     			<ul>
     				<?php $post_hot = $posts->where('hot',1)->take(4); ?>
     				@foreach($post_hot as $post)
-    				<li>
-    					@if(count($post->files)>0) 
-							<?php $image = $post->files[0]->link; ?>
+    				<li class="shine-o">
+    					@if($post->feture)
+							<?php $image = $post->feture; ?>
 						@else 
 							<?php $image = 'http://placehold.it/60x60'; ?>
 						@endif
@@ -25,13 +25,13 @@
     			</ul>
     		</div>
 
-    		<div id="recent-tab">
+    		<div id="recent-tab" class="shine">
     			<ul>
-    				<?php $post_recent = $posts->take(4); ?>
+    				<?php $post_recent = $posts->where('post_type','text')->take(4); ?>
     				@foreach($post_recent as $post)
-    				<li>
-    					@if(count($post->files)>0) 
-							<?php $image = $post->files[0]->link; ?>
+    				<li class="shine-o">
+    					@if($post->feture) 
+							<?php $image = $post->feture ?>
 						@else 
 							<?php $image = 'http://placehold.it/60x60'; ?>
 						@endif
@@ -43,13 +43,13 @@
     			</ul>
     		</div>
 
-   			<div id="view-tab">
+   			<div id="view-tab" class="shine">
    				<ul>
    					<?php $post_recent = $posts->sortByDesc('view')->take(4); ?>
     				@foreach($post_recent as $post)
-    				<li>
-    					@if(count($post->files)>0) 
-							<?php $image = $post->files[0]->link; ?>
+    				<li class="shine-o">
+    					@if($post->feture) 
+							<?php $image = $post->feture; ?>
 						@else 
 							<?php $image = 'http://placehold.it/60x60'; ?>
 						@endif
@@ -75,13 +75,14 @@
 			</div>
 		</li>
 		<li class="widget widget_facebook_box clearfix">
-			<h3 class="widget-title">Find Us On Facebook</h3>
-			<iframe src="http://www.facebook.com/plugins/likebox.php?href=http://facebook.com/psdtuts&amp;width=285&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=false&amp;height=258" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+			<h3 class="widget-title">Fanpage Facebook </h3>
+			<iframe src="http://www.facebook.com/plugins/likebox.php?href=http://facebook.com/laravelvn	&amp;width=285&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=false&amp;height=300" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
 		</li>
 		<li class="widget widget_video clearfix">
-			<h3 class="widget-title">Featured Video</h3>
+			<h3 class="widget-title">Video Nổi Bật</h3>
 			<div class="flex-video widescreen">
-				<iframe src="http://www.youtube.com/embed/YdaMGcOyfjM" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+				<?php $post_video = $posts->sortByDesc('created_at')->where('post_type','video')->take(1); ?>
+				<video src="{{ $post_video[0]->feture }}" alt="{{ $post_video[0]->title}}" style="width: 100%" controls></video>
 			</div>
 		</li>
 		<li class="widget widget_social_media clearfix">

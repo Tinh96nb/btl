@@ -6,8 +6,8 @@
 @endsection
 	@if($post->post_type == 'text')
 	<a href="" class="featured-img">
-		@if(count($post->files)>0) 
-			<?php $image = $post->files[0]->link; ?>
+		@if($post->feture)
+			<?php $image = $post->feture; ?>
 		@else 
 			<?php $image = 'http://placehold.it/620x375'; ?>
 		@endif
@@ -17,7 +17,7 @@
 	<!-- Youtube Video embed -->
 	@if($post->post_type == 'video')
 	<div class="flex-video widescreen">
-		<video src="{{ $post->files[0]->link}}" style="width: 100%" controls></video>
+		<video src="{{ $post->feture}}" style="width: 100%" controls></video>
 	</div>
 	@endif
 	<!-- End Youtube Video embed -->
@@ -28,7 +28,7 @@
 
 	<div class="post-meta">
 		<span class="view"><a href="">{{$post->view}} views</a></span>
-		<span class="author"><a href="#">{{ $post->admin->name }}</a></span>
+		<span class="author"><a href="author/{{ $post->admin->name }}">{{ $post->admin->name }}</a></span>
 		<span class="date"><a href="">{{date('H:i d-m-Y', strtotime($post->created_at)) }}</a></span>
 		<li class="widget widget_tag_cloud clearfix">
 			<div class="tagcloud">

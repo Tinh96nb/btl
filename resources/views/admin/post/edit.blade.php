@@ -72,6 +72,13 @@
 <script src="js/slug.js"></script>
 <script>
     $(document).ready(function(){
+        var options = {
+                filebrowserImageBrowseUrl: 'laravel-filemanager?type=Images',
+                filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+                filebrowserBrowseUrl: 'laravel-filemanager?type=Files',
+                filebrowserUploadUrl: 'laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+              };
+        CKEDITOR.replace('demo', options);
          $('#title').keyup(function(event) {
             var title = $('#title').val();
             var slug = ChangeToSlug(title);
