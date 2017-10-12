@@ -6,3 +6,8 @@
 <script type="text/javascript" src="js/jcarousel.js"></script>
 <script type="text/javascript" src="js/jquery.masonry.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#main-menu ul li a').filter(function(){return this.href==location.href}).addClass('active');
+	})
+</script>

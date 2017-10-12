@@ -45,7 +45,7 @@
             </li>
 
             <li>
-                <a href="admin/file"><i class="fa fa-file-image-o fa-fw"></i> Tệp tin</a>
+                <a href="laravel-filemanager?type=Images&CKEditor=demo&CKEditorFuncNum=1&langCode=en"><i class="fa fa-file-image-o fa-fw"></i> Tệp tin</a>
             </li>
 
             <li>

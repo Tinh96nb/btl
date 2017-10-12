@@ -56,11 +56,11 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-file fa-5x"></i>
+                                    <i class="fa fa-tags fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">{{ $num_file}}</div>
-                                    <div>Tệp Tin!</div>
+                                    <div class="huge">{{ $num_tag }}</div>
+                                    <div>Thẻ Gắn Kèm!</div>
                                 </div>
                             </div>
                         </div>

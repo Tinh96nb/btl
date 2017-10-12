@@ -2,7 +2,7 @@
 <header class="clearfix">
 	<nav id="main-menu" class="left navigation">
 		<ul class="sf-menu no-bullet inline-list m0">
-			<li><a href="" class="active">Home</a></li>
+			<li><a href="">Trang Chủ</a></li>
 			@foreach ($categories as $cate)
 				<li>
 					<a href="category/{{ $cate->slug }}">{{ $cate->name }}</a>
