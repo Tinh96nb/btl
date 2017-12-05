@@ -20,7 +20,7 @@
 		</div>
 
 		<div class="post-container">
-			><a href="post/{{$post->slug}}.html"><h2 class="post-title">{{$post->title}}</h2></a>
+			<a href="post/{{$post->slug}}.html"><h2 class="post-title">{{$post->title}}</h2></a>
 			<div class="post-content">
 				<p>{{$post->description}}</p>
 			</div>

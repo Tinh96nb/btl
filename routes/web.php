@@ -56,11 +56,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
             Route::delete('delete', 'CategoryController@delete');
         });
         /* Group file */
-        Route::prefix('file')->group(function () {
-            Route::get('/', 'FileController@getList')->name('list-file');
-            Route::get('delete/{id}', 'FileController@getdelete');
-        });
-        /* Group file */
         Route::prefix('tag')->group(function () {
             Route::get('/', 'TagController@getList')->name('list-tag');
             Route::get('data', 'TagController@dataTable')->name('data-tag');

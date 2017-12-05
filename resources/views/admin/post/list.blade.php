@@ -110,7 +110,7 @@
 @section('script')
  <script type="text/javascript">
     $(document).ready(function() {
-        $('#example').DataTable({'iDisplayLength': '50'});
+        $('#example').DataTable({'iDisplayLength': '50',"order": [[ 0, "desc" ]]});
         @if(Auth::user()->role=='admin')
         $('.status').css('cursor', 'pointer');
          $('.hot').css('cursor', 'pointer');

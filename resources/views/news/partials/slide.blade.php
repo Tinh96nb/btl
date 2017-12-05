@@ -3,7 +3,7 @@
         @foreach($posts as $post)
 		<li>
      		<a href="post/{{ $post->slug }}.html">
-                <img alt="{{ $post->files[0]->name }}" src="{{ $post->files[0]->link }}"> 
+                <img alt="{{ $post->feture }}" src="{{ $post->feture }}"> 
             </a>                    
      		<div class="flex-caption">
                 <div class="desc">

@@ -81,8 +81,8 @@
 		<li class="widget widget_video clearfix">
 			<h3 class="widget-title">Video Nổi Bật</h3>
 			<div class="flex-video widescreen">
-				<?php $post_video = $posts->sortByDesc('created_at')->where('post_type','video')->take(1); ?>
-				<video src="{{ $post_video[0]->feture }}" alt="{{ $post_video[0]->title}}" style="width: 100%" controls></video>
+				<?php $post_video = $posts->where('post_type','video'); ?>
+				<video src="{{ $post_video[1]->feture }}" alt="{{ $post_video[1]->title}}" style="width: 100%" controls></video>
 			</div>
 		</li>
 		<li class="widget widget_social_media clearfix">

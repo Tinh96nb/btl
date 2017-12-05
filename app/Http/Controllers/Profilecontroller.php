@@ -85,8 +85,7 @@ class Profilecontroller extends Controller
                 $file->move('upload/profile',$random_file_name);
                 $file_upload = 'upload/profile/'.$random_file_name;
                 $profile->avatar = $file_upload;
-            } else $profile->avatar = '';
-            
+            }
             $profile->save();
 	    	Session::flash('flash_success','Thay đổi thành công.');
     		return redirect()->back();

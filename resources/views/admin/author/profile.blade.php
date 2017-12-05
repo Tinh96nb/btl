@@ -81,10 +81,10 @@ h2 {
                             <div class="user-btm-box">
                                 <div class="col-md-6 col-sm-6 text-center">
                                     <p class="text-purple"><i class="fa fa-pencil fa-fw"></i></p>
-                                    <h1>{{ $profile->posts->count('name')}}</h1> </div>
+                                    <h1 style="font-size: 22px;">{{ $profile->posts->count('name')}}</h1> </div>
                                 <div class="col-md-6 col-sm-6 text-center">
                                     <p class="text-danger"><i class="fa fa-file" aria-hidden="true"></i></i></p>
-                                    <h2>125</h2> </div>
+                                    <h2 style="font-size: 22px;">{{ date('d-m-Y', strtotime($profile->created_at))}}</h2> </div>
                             </div>
                         </div>
                     </div>
