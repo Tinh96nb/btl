@@ -30,7 +30,7 @@
 	<!-- End Footer widgets -->
 
 	<div class="copyright clearfix">
-		© Copyright 2017 HVKT Mật Mã
+		© Copyright 2017 PĐT
 	</div>
 
 	<div id="back-to-top" class="right">
