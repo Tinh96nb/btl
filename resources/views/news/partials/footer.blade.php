@@ -5,8 +5,7 @@
 			<h3 class="widget-title">Thông Tin</h3>
         	<div class="textwidget">
         		<img alt="" src="images/logo/logo.png">
-        		<p>BTL Trang Tin Tức Công Nghệ.</p>
-        		<p>GV Hướng Dẫn Lê Đức Thuận.</p>
+        		<p>Trang Tin Tức Công Nghệ.</p>
        		</div>
 		</li>
 		<li class="widget four column">
@@ -24,8 +23,6 @@
         	<div class="twitter-widget">
         		<ul class="arrow-list">
         			<li><a href="#">Phạm Đức Tính</a></li>
-        			<li><a href="#">Ngô Quang Minh</a></li>	
-        			<li><a href="#">Phạm Trung Kiên</a></li>
         		</ul>
         	</div>
 		</li>
